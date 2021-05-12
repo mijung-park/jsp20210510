@@ -30,8 +30,7 @@ address 파라미터 = <%= request.getParameter("address") %>
 	Enumeration paramEnum = request.getParameterNames();
 	while(paramEnum.hasMoreElements()) {
 		String name = (String)paramEnum.nextElement();
-%>
-	<%= name %>
+%>	<%= name %>
 <%
 	}
 %>
