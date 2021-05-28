@@ -36,9 +36,9 @@ public class JDBC11Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String eid = request.getParameter("eid");
+		String id = request.getParameter("eid");
 		
-		Employee employee = executeJDBC(eid);
+		Employee employee = executeJDBC(id);
 		
 		request.setAttribute("emp", employee);
 		
@@ -48,11 +48,11 @@ public class JDBC11Servlet extends HttpServlet {
 	}
 
 	
-	private Employee executeJDBC(String eid) {
+	private Employee executeJDBC(String id) {
 	 	
 	 	Employee employee = null; // 리턴할 객체
 		
-		String sql = "SELECT EmployeeID, LastName, FirstName FROM Employees WHERE EmployeeID = " + eid;
+		String sql = "SELECT EmployeeID, LastName, FirstName FROM Employees WHERE EmployeeID = " + id;
 		
 
 		String url = "jdbc:mysql://3.36.73.238/test"; 
