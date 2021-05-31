@@ -23,5 +23,5 @@ FROM Customers;
     SELECT CUstomerName, City FROM Customers
     WHERE CustomerID = 4;
     
-    SELECT EmployeeID, LastName, FirstName FROM Employees
+    SELECT EmployeeID, LastName, FirstName, Notes FROM Employees
     WHERE EmployeeID = 1;
