@@ -1,11 +1,20 @@
 package ch14.bean;
 
+import java.util.Date;
+
 public class Employee {
 	private String num;
 	private String lastName;
 	private String firstName;
+	private String notes;
+
 	
-	
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 	public String getNum() {
 		return num;
 	}
