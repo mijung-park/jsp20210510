@@ -84,7 +84,7 @@ public class JDBC11Servlet extends HttpServlet {
 //				System.out.println(city);
 				
 				employee = new Employee();
-				employee.setNum(num);
+				employee.setId(Integer.parseInt(id));
 				employee.setLastName(lastName);
 				employee.setFirstName(fistName);
 			}

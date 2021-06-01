@@ -1,25 +1,22 @@
 package ch14.bean;
 
-import java.util.Date;
-
 public class Employee {
-	private String num;
+	private int id;
 	private String lastName;
 	private String firstName;
 	private String notes;
-
 	
-	public String getNotes() {
-		return notes;
-	}
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public String getNum() {
-		return num;
+	public String getNotes() {
+		return notes;
 	}
-	public void setNum(String num) {
-		this.num = num;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getLastName() {
 		return lastName;
@@ -34,7 +31,5 @@ public class Employee {
 		this.firstName = firstName;
 	}
 	
-
-
 	
 }
