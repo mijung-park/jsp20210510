@@ -94,4 +94,17 @@ CHANGE col2 Col2 DATETIME;
  ALTER TABLE MyTable6
 CHANGE col3 Col3 TIMESTAMP;
 
+-- exercise 03
+
+CREATE TAbLE Persons
+ (
+  PersonID int,
+  LastName varchar(255),
+  FirstName varchar(255),
+  Address varchar(255),
+  City varchar(255) 
+);
+
+DROP TABLE Persons;
+
 
