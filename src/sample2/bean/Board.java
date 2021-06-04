@@ -1,7 +1,7 @@
 package sample2.bean;
 
 import java.sql.Timestamp;
-import java.time.Instant;
+import java.text.SimpleDateFormat;
 
 public class Board {
 	private int id;
@@ -23,8 +23,7 @@ public class Board {
 		} else if ( diff < 60 * 60 * 24) {
 			return (diff / (60 * 60)) + "시간 전";
 		} else {
-			Instant instant = this.inserted.toInstant();
-			return instant.toString();
+			return new SimpleDateFormat("yy/MM/dd").format(this.inserted);
 		}
 	}
 	
