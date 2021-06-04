@@ -1,4 +1,4 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -16,7 +16,7 @@ import sample2.dao.MemberDao;
 /**
  * Servlet implementation class Sample2SignupServlet
  */
-@WebServlet("/sample2/signup")
+@WebServlet("/sample2/member/signup")
 public class Sample2SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +33,7 @@ public class Sample2SignupServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String path = "/WEB-INF/sample2/signup.jsp";
+		String path = "/WEB-INF/sample2/member/signup.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
@@ -66,7 +66,7 @@ public class Sample2SignupServlet extends HttpServlet {
 		} else {
 			request.setAttribute("message", "가입 실패");
 			
-			String path = "/WEB-INF/sample2/signup.jsp";
+			String path = "/WEB-INF/sample2/member/signup.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 	}
