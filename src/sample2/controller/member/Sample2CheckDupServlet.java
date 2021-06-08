@@ -52,11 +52,3 @@ public class Sample2CheckDupServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-

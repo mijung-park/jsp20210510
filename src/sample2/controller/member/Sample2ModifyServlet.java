@@ -70,11 +70,3 @@ public class Sample2ModifyServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-

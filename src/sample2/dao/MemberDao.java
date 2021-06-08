@@ -24,7 +24,6 @@ public class MemberDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -39,7 +38,7 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		
 		try {
-			
+
 			con = DriverManager.getConnection(url, user, password);
 			pstmt = con.prepareStatement(sql);
 			
@@ -107,12 +106,11 @@ public class MemberDao {
 	}
 
 	public Member getMember(String id) {
-		String sql = "SELECT Id, password, name, birth, inserted "
+		String sql = "SELECT id, password, name, birth, inserted "
 				+ "FROM Member "
-				+ "WHERE id = ? ";
+				+ "WHERE id = ?";
 		
 		ResultSet rs = null;
-		
 		try (
 			Connection con = DriverManager.getConnection(url, user, password);
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -143,6 +141,7 @@ public class MemberDao {
 				}
 			}
 		}
+		
 		return null;
 	}
 
@@ -194,21 +193,20 @@ public class MemberDao {
 		return false;
 	}
 
-	public void remove(String id) {
-		
-		String sql = "DELETE FROM Member WHERE id = ? ";
+	public void remove(String id, Connection con) {
+
+		String sql = "DELETE FROM Member WHERE id = ?";
 		
 		try (
-			Connection con = DriverManager.getConnection(url, user, password);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 				) {
+			
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
-		} catch(Exception e) {
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	public boolean existsId(String id) {

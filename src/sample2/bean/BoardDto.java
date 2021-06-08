@@ -8,25 +8,17 @@ public class BoardDto {
 	private String title;
 	private String body;
 	private String memberName;
+	private String memberId;
 	private Timestamp inserted;
 	
-	public String getTimeAgo() {
-		long now = System.currentTimeMillis();
-		long inserted = this.inserted.getTime();
-		
-		long diff = now - inserted;
-		
-		diff /= 1000;
-		
-		if (diff < 60 * 60) {
-			return (diff / 60) + "분 전";
-		} else if ( diff < 60 * 60 * 24) {
-			return (diff / (60 * 60)) + "시간 전";
-		} else {
-			return new SimpleDateFormat("yy/MM/dd").format(this.inserted);
-		}
-	}
 	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 	public int getBoardId() {
 		return boardId;
 	}
@@ -58,6 +50,20 @@ public class BoardDto {
 		this.inserted = inserted;
 	}
 	
-	
-	
+	public String getTimeAgo() {
+		long now = System.currentTimeMillis();
+		long inserted = this.inserted.getTime();
+		
+		long diff = now - inserted;
+		
+		diff /= 1000;
+		
+		if (diff < 60 * 60) {
+			return (diff / 60) + "분 전";
+		} else if (diff < 60 * 60 * 24) {
+			return (diff / (60 * 60)) + "시간 전";
+		} else {
+			return new SimpleDateFormat("yy/MM/dd").format(this.inserted);
+		}
+	}
 }

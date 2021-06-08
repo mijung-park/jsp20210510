@@ -13,7 +13,7 @@ import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2LoginServlet
+ * Servlet implementation class Sample2LogInServlet
  */
 @WebServlet("/sample2/member/login")
 public class Sample2LoginServlet extends HttpServlet {
@@ -60,3 +60,12 @@ public class Sample2LoginServlet extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+
+
+
+

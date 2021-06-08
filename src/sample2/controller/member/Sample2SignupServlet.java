@@ -2,7 +2,6 @@ package sample2.controller.member;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,7 @@ import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2SignupServlet
+ * Servlet implementation class Sample2SignUpServlet
  */
 @WebServlet("/sample2/member/signup")
 public class Sample2SignupServlet extends HttpServlet {
@@ -32,7 +31,6 @@ public class Sample2SignupServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String path = "/WEB-INF/sample2/member/signup.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
@@ -42,7 +40,6 @@ public class Sample2SignupServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		request.setCharacterEncoding("utf-8");
-		
 		// request parameter 수집
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
@@ -62,7 +59,7 @@ public class Sample2SignupServlet extends HttpServlet {
 		
 		// forward or redirect
 		if (ok) {
-			String path = request.getContextPath() + "/sample2/main";
+			String path = request.getContextPath() + "/sample2/member/list";
 			response.sendRedirect(path);
 		} else {
 			request.setAttribute("message", "가입 실패");

@@ -2,6 +2,7 @@ package sample2.bean;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 
 public class Board {
 	private int id;
@@ -20,7 +21,7 @@ public class Board {
 		
 		if (diff < 60 * 60) {
 			return (diff / 60) + "분 전";
-		} else if ( diff < 60 * 60 * 24) {
+		} else if (diff < 60 * 60 * 24) {
 			return (diff / (60 * 60)) + "시간 전";
 		} else {
 			return new SimpleDateFormat("yy/MM/dd").format(this.inserted);
@@ -28,8 +29,7 @@ public class Board {
 	}
 	
 	public String getMemberIdHidden() {
-		
-		return memberId.substring(0, 2) + "***";
+		return memberId.substring(0, 1) + "******";
 	}
 	
 	public int getId() {
@@ -62,4 +62,6 @@ public class Board {
 	public void setInserted(Timestamp inserted) {
 		this.inserted = inserted;
 	}
+	
+	
 }

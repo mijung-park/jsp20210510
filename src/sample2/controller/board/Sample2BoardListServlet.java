@@ -39,6 +39,7 @@ public class Sample2BoardListServlet extends HttpServlet {
 		
 		String path = "/WEB-INF/sample2/board/list.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
+
 	}
 
 	/**

@@ -42,7 +42,7 @@ public class Sample2BoardWriteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("userLogined");
-		
+			
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
 		
