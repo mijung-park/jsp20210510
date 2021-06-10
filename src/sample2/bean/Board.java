@@ -10,7 +10,8 @@ public class Board {
 	private String body;
 	private String memberId;
 	private Timestamp inserted;
-	
+
+
 	public String getTimeAgo() {
 		long now = System.currentTimeMillis();
 		long inserted = this.inserted.getTime();
