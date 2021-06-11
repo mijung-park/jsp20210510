@@ -15,14 +15,28 @@
 <body>
 <s2:navbar></s2:navbar>
 <div class="container">
+
+	<div class="row justify-content-center">
+	<div class="col-6">
+	
 	<h1>로그인</h1>
 	<form method="post" action = "${pageContext.request.contextPath }/sample2/member/login">
-		id <br>
-		<input type="text" name="id"> <br>
-		pw <br>
-		<input type="password" name="password"> <br>
-		<input type="submit" value="로그인">
+		
+		<div class="form-group">
+			<label for="input1">ID</label>
+			<input id="input1" class="form-control" type="text" name="id">
+		</div>
+
+		<div class="form-group">
+			<label for="input2">Password</label>
+			<input id="input2" class="form-control" type="password" name="password">
+		</div>
+		
+		<button class="btn btn-danger" type="submit"><i class="fas fa-sign-in-alt"></i> LogIN</button>
+		
 	</form>
+	</div>
+	</div>
 	
 	<c:if test="${not empty message }">
 		<s2:message></s2:message>

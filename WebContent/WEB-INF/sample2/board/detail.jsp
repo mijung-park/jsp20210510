@@ -10,34 +10,48 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>Mezzang's Board Detail</title>
 </head>
 <body>
 <s2:navbar></s2:navbar>
 <div class="container">
+
+	<div class="row justify-content-center">
+	<div class="col-8">
+	
 	<h1>${board.boardId }번 글 보기</h1>
 	
 	<form id="form1" action="${pageContext.request.contextPath }/sample2/board/modify" method="post">
 	
+		<div class="form-gruop">
+			<label for="input1">제목</label>
+			<input id="input1" class="form-control" type="text" name="title" value="${board.title }" readonly>	
+		</div>
 	
-	제목 : <br>
-	<input name="title" id="input1" type="text" value="${board.title }" readonly>
-	<br>
-	본문 : <br>
-	<textarea name="body" id="textarea1" readonly>${board.body }</textarea>
-	<br>
-	작성자 : <br>
-	<input type="text" value="${board.memberName }" readonly>
-	<br>
-	작성시간 : <br>
-	<input type="text" value="${board.timeAgo }" readonly>
+	
+		<div class="form-gruop">
+			<label for="textarea1">본문</label>
+			<textarea rows="10" id="textarea1" class="form-control" name="body" readonly> ${board.body }</textarea>	
+		</div>
+
+		<div class="form-gruop">
+			<label for="input2">글쓴이</label>
+			<input id="input2" class="form-control" type="text" value="${board.memberName }" readonly>	
+		</div>
+	
+		<div class="form-gruop">
+			<label for="input3">작성시간</label>
+			<input id="input3" class="form-control" type="text" value="${board.timeAgo }" readonly>	
+		</div>
 
 	<c:if test="${sessionScope.userLogined.id == board.memberId  }" >
 		<script>
-			$(document).ready(function() {
-				$("#button1").click(function() {
-					$("#submit1, #submit2").removeAttr("hidden");
+			$(document).ready(function() {	
+				$("#button1").click(function(e) {
+					e.preventDefault();
 					$("#input1, #textarea1").removeAttr("readonly");
+					$("#button1").attr("hidden", "hidden");
+					$("#submit1, #submit2").removeAttr("hidden");
 				});
 				
 				$("#submit2").click(function(e) {
@@ -55,27 +69,35 @@
 	
 		<br>
 		<input type="number" value="${board.boardId }" name="boardId" hidden >
-		<button id="button1" type="button">수정</button>
-		<input id="submit1" hidden type="submit" value="전송" >
-		<input id="submit2" hidden type="submit" value="삭제" >
+		<button class="btn btn-danger" id="button1" type="button">수정</button>
+		<button class="btn btn-warning" id="submit1" hidden>전송</button>
+		<button class="btn btn-danger" id="submit2">삭제</button>
+
 	</c:if>
 	
 	</form>	
+	
+	</div>
+	</div>
 	
 	<s2:message />
 </div>
 
 <c:if test="${not empty sessionScope.userLogined }">
 <div class="container mt-5">
+<div class="row justify-content-center">
+<div class="col-8">
 	<form action="${pageContext.request.contextPath }/sample2/comment/add" method="post">
 		<textarea name="comment"></textarea>
 		<br>
-		<input hidden name="memberId" value="${sessionScope.userLogined.id }" readonly>
+		<input class= hidden name="memberId" value="${sessionScope.userLogined.id }" readonly>
 		<br>
 		<input hidden name="boardId" value="${board.boardId }" readonly>
 		<br>
-		<input type="submit" value="댓글작성">
+		<button class="btn btn-danger" type="submit"><i class="fas fa-pencil-alt"></i></i> 댓글 쓰기</button>
 	</form>
+</div>
+</div>
 </div>
 
 </c:if>
@@ -106,6 +128,9 @@
 			});
 		</script>
 		<div>
+		 <div class="row justify-content-center">
+		 <div class="col-8">
+		 <div class="form-gruop">
 			<form id="comment${comment.id }Form" 
 			      action="${pageContext.request.contextPath }/sample2/comment/modify"
 			      method="post">
@@ -115,12 +140,17 @@
 				<span>${comment.memberName }</span>
 				<span>${comment.timeAgo }</span>
 				
+				
 				<c:if test="${sessionScope.userLogined.id == comment.memberId }">
-					<button id="comment${comment.id }Button1">수정</button>
-					<button id="comment${comment.id }Button3" hidden>전송</button>
-					<button id="comment${comment.id }Button2">삭제</button>
+
+					<button class="btn btn-danger" id="comment${comment.id }Button1">수정</button>
+					<button class="btn btn-warning" id="comment${comment.id }Button3" hidden>전송</button>
+					<button class="btn btn-danger" id="comment${comment.id }Button2">삭제</button>
 				</c:if>
 			</form>
+		 </div>
+		 </div>
+		 </div>
 		</div>
 	</c:forEach>
 </div>

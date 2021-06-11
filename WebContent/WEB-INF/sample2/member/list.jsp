@@ -10,7 +10,7 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>Member List (Secret)</title>
 </head>
 <body>
 <s2:navbar></s2:navbar>

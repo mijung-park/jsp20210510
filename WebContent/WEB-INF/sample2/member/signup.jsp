@@ -9,7 +9,7 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>Mezzang's Board SignUp</title>
 <script>
 var url = "${pageContext.request.contextPath}" + "/sample2/member/checkdup";
 
@@ -21,11 +21,11 @@ $(document).ready(function() {
 			if (data == 'ok') {
 				// 가입 가능 메세지
 				// console.log("ok");
-				$("#span1").text("사용 가능");
+				$("#span1").text("사용가능한 ID 입니다.");
 			} else {
 				// 가입 불가능 메세지
 				// console.log("not ok");
-				$("#span1").text("사용 불가능");
+				$("#span1").text("이미 사용중인 ID 입니다.");
 			}
 		});
 	});
@@ -36,21 +36,45 @@ $(document).ready(function() {
 <body>
 <s2:navbar></s2:navbar>
 <div class="container">
+
+	<div class="row justify-content-center">
+	<div class="col-4">
+	
 	<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
-		id : <br>
-		<input type="text" name="id" id="input1" >
-		<button id="button1" type="button">중복확인</button>
-		<span id="span1"></span>
-		 <br>
-		pw : <br>
-		<input type="password" name="password"> <br>
-		name : <br>	
-		<input type="text" name="name"> <br>
-		birth day: <br>
-		<input type="date" name="birth"> <br>
+		<h1>회원 가입</h1>
 		
-		<input type="submit" value="가입">
+		<div class="form-group">
+			<label for="input1">ID</label>
+			<div class="input-group mb-3">
+			<input id="input1" class ="form-control" name="id" type="text">
+ 		   	 <div class="input-group-append">
+           		 <button class="btn btn-outline-secondary" type="button" id="button1">중복확인</button>
+           	 </div>
+            </div>
+			<span class="form-text text-muted" id ="span1"></span>	
+		</div>
+
+		<div class="form-group">
+			<label for="input2">Password</label>
+			<input id="input2" name="password" type="password" class="form-control">
+		</div>
+			
+		<div class="form-group">
+			<label for="input3">Name</label>
+			<input id="input3" name="name" type="text" class="form-control">
+		</div>
+		
+		<div class="form-group">
+			<label for="input4">Birth Day</label>
+			<input id="input4" name="birth" type="date" class="form-control">
+		</div>
+		
+		<button class="btn btn-danger" type="submit"><i class="fas fa-file-signature"></i> Submit</button>
+		
+		
 	</form>
+	</div>
+	</div>
 	
 	<c:if test="${not empty message }">
 	<s2:message></s2:message>

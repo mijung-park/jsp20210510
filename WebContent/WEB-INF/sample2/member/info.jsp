@@ -10,7 +10,7 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>My Information</title>
 <script>
 $(document).ready(function() {
 	$("#button1").click(function() {
@@ -37,37 +37,62 @@ $(document).ready(function() {
 <body>
 <s2:navbar></s2:navbar>
 <div class="container">
+	<div class="row justify-content-center">
+	<div class="col-8">
 	<form id="form1" action="${pageContext.request.contextPath }/sample2/member/modify" method="post">
-		id : <br>
-		<input id="input1" type="text" name="id" value="${member.id }" readonly> <br>
-		pw : <br>
-		<input id="input2" type="password" name="password" value="${member.password }" readonly> <br>
-		name : <br>	
-		<input id ="input3" type="text" name="name" value="${member.name }" readonly> <br>
-		birth day: <br>
-		<input id="input4" type="date" name="birth" value="${member.birth }" readonly> <br>
 		
-		<button id="button1" type="button">수정</button>
-		<input type="submit" id="submit1" value="전송" hidden>
+		<div class="form-gruop">
+			<label for="input1">ID</label>
+			<input id="input1" class="form-control" type="text" name="id" value="${member.id }" readonly>	
+		</div>
+
+		<div class="form-gruop">
+			<label for="input2">Password</label>
+			<input id="input2" class="form-control" type="password" name="password" value="${member.password }" readonly>	
+		</div>
+
+		<div class="form-gruop">
+			<label for="input3">Name</label>
+			<input id="input3" class="form-control" type="text" name="name" value="${member.name }" readonly>	
+		</div>
+
+		<div class="form-gruop">
+			<label for="input4">Birth Day</label>
+			<input id="input4" class="form-control" type="date" name="birth" value="${member.birth }" readonly>	
+		</div>
+		
+		<button class="btn btn-danger" id="button1" type="button">수정</button>
+		<input class="btn btn-warning"type="submit" id="submit1" value="전송" hidden>
 	</form>
+	</div>
+	</div>
 	
 	<c:if test="${not empty message }">
 		<s2:message></s2:message>
 	</c:if>
 </div>
 
-<div>
-작성한 게시물 : <span>${member.numberOfBoard }</span>개
-<br>
-작성한 댓글 : <span>${member.numberOfComment }</span>개
+<div class="container mt-3">
+<div class="row justify-content-center">
+<div class="col-8">
+
+	<div class="form-gruop">
+	<input class="form-control" type="text" value=" 작성 게시물 : ${member.numberOfBoard } 개" readonly>
+	<input class="form-control" type="text" value=" 작성 댓글 : ${member.numberOfComment } 개" readonly>		
+	</div>
+
+</div>
+</div>
 </div>
 
-<div class="container">
+<div class="container mt-3">
+<div class="row justify-content-center">
+<div class="col-8">
 	<form id="form2" action="${pageContext.request.contextPath }/sample2/member/remove" method="post">
-		<input id="submit2" type="submit" value="탈퇴">
+		<input class="btn btn-danger" id="submit2" type="submit" value="탈퇴">
 	</form>
-
-
+</div>
+</div>
 </div>
 </body>
 </html>

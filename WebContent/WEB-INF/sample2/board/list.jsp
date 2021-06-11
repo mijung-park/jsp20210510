@@ -10,12 +10,17 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>Insert title here</title>
+<title>Mezzang's Board List</title>
 </head>
 <s2:navbar></s2:navbar>
 <body>
 <div class="container">
-	<h1>글 목록 <small class="text-muted">[${totalNum }]</small></h1>
+	<h1>글 목록
+	  <span class="fa-layers fa-fw">
+      <i class="fas fa-comments" style="color:Tomato"></i>
+	  <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-5">${totalNum }</span>
+      </span>
+     </h1>
 <s2:message></s2:message>
 	<table class="table">
 		<thead>
@@ -33,7 +38,12 @@
 					<td>
 					<a href="<%= request.getContextPath()%>/sample2/board/detail?id=${board.boardId}">${board.title }</a>
 					<c:if test="${board.numberOfComment ne 0 }">
-					<span>[${board.numberOfComment }]</span>
+				
+  				    <span class="fa-layers fa-fw">
+				    <i class="fas fa-comment" style="color:Tomato"></i>
+				    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-5">${board.numberOfComment }</span>
+					</span>
+					
 					</c:if>
 					</td>
 					<td>${board.memberName }</td>

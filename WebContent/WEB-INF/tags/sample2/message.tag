@@ -3,8 +3,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:if test="${not empty message }">
-	<div class="alert alert-primary">
+	<div class="row justify-content-center">
+	<div class="col-8">
+	<div class="alert alert-success">
 		${message }
+	</div>
+	</div>
 	</div>
 	
 	<c:remove var="message" />

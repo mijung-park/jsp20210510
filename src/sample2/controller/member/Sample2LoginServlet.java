@@ -47,6 +47,11 @@ public class Sample2LoginServlet extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		Member member = dao.getMember(id);
 		
+		if (member.getId().equals("mezzang") && member.getPassword().equals("park")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("master", member);
+		}
+		
 		if (member != null && member.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userLogined", member);
@@ -57,6 +62,8 @@ public class Sample2LoginServlet extends HttpServlet {
 			request.setAttribute("message", "아이디나 패스워드가 일치하지 않습니다");
 			request.getRequestDispatcher(path).forward(request, response);
 		}
+		
+		
 	}
 
 }
